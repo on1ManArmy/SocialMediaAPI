@@ -6,12 +6,14 @@ const dotenv = require("dotenv");
 const connectDb = require("./config/db");
 dotenv.config({ path: "./config/.env" });
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/posts");
 
 app.use(cors());
 app.use(express.json());
 
 // All api routes
 app.use("/api/auth", authRoute);
+app.use("/api/posts", postRoute);
 
 connectDb();
 
